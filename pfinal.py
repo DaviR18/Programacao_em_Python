@@ -6,6 +6,30 @@ Vida = 100
 qnt_de_moeda = 30
 Possui_espada = False
 
+print("vc encontou um mercador oferecendo uma espada por 20 moedas.")
+
+comprar = int(input("Digite 1 pra comprar e 2 Guardar o ouro: "))
+
+def compras(escolha):
+    global qnt_de_moeda, Possui_espada
+    if escolha > 2:
+        escolha = int(input("Digite 1 pra comprar e 2 Guardar o ouro: "))
+        if escolha > 2 :
+            compras(escolha)
+        return escolha
+    else:
+        if escolha == 1:
+            if qnt_de_moeda >= 20:
+                qnt_de_moeda -= 20
+                Possui_espada = True
+                Inventario.append("Espada")
+                print("Comprou a espada com sucesso!")
+            else:
+                print("Moedas insuficientes!")
+        return escolha
+
+compras(comprar)
+
 
 
 escolha_do_jogador = int(input("Digite 1 pra Lutar e 2 Fugir: "))
